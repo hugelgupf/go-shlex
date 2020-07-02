@@ -1,0 +1,22 @@
+version: 2
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+
+jobs:
+  build:
+    docker:
+      - image: circleci/golang:1.13
+    environment:
+      - GOPATH: "/go"
+      - CGO_ENABLED: 0
+    steps:
+      - checkout
+      - run: go env
+      - run: (cd ./test && go test -v ./...)
+      - run: |
+          go get github.com/mitchellh/gox
+          gox ./...
