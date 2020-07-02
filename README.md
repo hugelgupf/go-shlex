@@ -13,6 +13,6 @@ go-shlex is a POSIX command-line shell-like argument parser.
     characters.
 
 -   [google/shlex](https://github.com/google/shlex): google does not support
-    Unicode spaces and double-quoted newlines (\n) and backslashes (\). google
+    Unicode spaces and double-quoted newlines (\n) and backslashes (\\). google
     also stops parsing upon error, while we (and anmitsu) will return partial
     results.
